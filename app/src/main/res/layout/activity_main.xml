@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Wpisz Imię..."
+                android:inputType="text"
+                android:layout_margin="15dp" />
+
+            <Spinner
+                android:id="@+id/rasa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp" />
+
+            <DatePicker
+                android:id="@+id/calendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:datePickerMode="calendar"
+                android:layout_margin="10dp" />
+
+            <TimePicker
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:timePickerMode="spinner"/>
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tajne ścieżki elfów"
+                android:layout_margin="15dp" />
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Płaszcz Elfów"
+                android:layout_margin="5dp"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lembasy"
+                android:layout_margin="5dp"/>
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pochodnia"
+                android:layout_margin="5dp"/>
+
+            <RadioGroup
+                android:id="@+id/marsz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/ukryty"
+                    android:text="ukryty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/zbalansowany"
+                    android:text="zbalansowany"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/forsowny"
+                    android:text="forsowny"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+
+            <SeekBar
+                android:id="@+id/czas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="20" />
+
+            <Chronometer
+                android:id="@+id/stoper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="22dp"
+                android:textSize="30dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="start"
+                    android:layout_margin="2dp"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="stop"
+                    android:layout_margin="2dp"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="reset"
+                    android:layout_margin="2dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CounterDownTimer"
+                android:textSize="40sp"
+                android:layout_marginTop="20dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nastrój Zespołu:"
+                    android:textSize="17dp" />
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tytulPodsumowanie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tutaj będzie podsumowanie:"
+                android:textSize="27dp"/>
+
+            <TextView
+                android:id="@+id/podsumowanie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="27dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
