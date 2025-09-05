@@ -1,7 +1,11 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Spinner
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -24,11 +28,30 @@ class MainActivity : AppCompatActivity() {
 
         spinner.adapter = adapter
 
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val zdjecie: ImageView = findViewById(R.id.zdjecie)
+
+
+        spinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                when (position) {
+                    0 -> zdjecie.setImageResource(R.drawable.hobbit)
+                    1 -> zdjecie.setImageResource(R.drawable.czlowiek)
+                    2 -> zdjecie.setImageResource(R.drawable.elf)
+                    3 -> zdjecie.setImageResource(R.drawable.krasnolud)
+                    4 -> zdjecie.setImageResource(R.drawable.czarodziej)
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {}
+        })
+
     }
 
 
