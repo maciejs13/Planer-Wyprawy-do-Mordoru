@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="#7CA0A9">
+    android:background="#7CA0A9"
+    tools:context=".MainActivity">
 
     <ScrollView
-        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -25,7 +23,7 @@
                 android:id="@+id/zdjecie"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:layout_weight="20"/>
+                android:layout_gravity="center" />
 
             <EditText
                 android:id="@+id/name"
@@ -41,37 +39,57 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp" />
 
-            <DatePicker
-                android:id="@+id/calendar"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:datePickerMode="calendar"
-                android:layout_margin="10dp" />
+                android:orientation="horizontal">
 
-            <TimePicker
-                android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/btn_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wybierz datę"
+                    android:layout_margin="8dp"/>
+
+                <Button
+                    android:id="@+id/btn_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wybierz godzinę"
+                    android:layout_margin="8dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/dateTimeInfo"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:timePickerMode="spinner"/>
+                android:text="Wyruszasz: -"
+                android:layout_marginTop="8dp"
+                android:textSize="16sp" />
 
             <Switch
+                android:id="@+id/tajne"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tajne ścieżki elfów"
                 android:layout_margin="15dp" />
 
             <CheckBox
+                android:id="@+id/cloak"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Płaszcz Elfów"
                 android:layout_margin="5dp"/>
 
             <CheckBox
+                android:id="@+id/lembas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Lembasy"
                 android:layout_margin="5dp"/>
 
             <CheckBox
+                android:id="@+id/torch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pochodnia"
@@ -80,17 +98,21 @@
             <RadioGroup
                 android:id="@+id/marsz"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <RadioButton
                     android:id="@+id/ukryty"
                     android:text="ukryty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:id="@+id/zbalansowany"
                     android:text="zbalansowany"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:id="@+id/forsowny"
                     android:text="forsowny"
@@ -98,85 +120,113 @@
                     android:layout_height="wrap_content" />
             </RadioGroup>
 
+            <TextView
+                android:id="@+id/czasValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Czas marszu: 120 min"
+                android:layout_marginTop="12dp"/>
+
             <SeekBar
                 android:id="@+id/czas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:max="100"
-                android:progress="20" />
+                android:max="300"
+                android:progress="120"
+                android:layout_marginTop="4dp" />
 
             <Chronometer
                 android:id="@+id/stoper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="22dp"
-                android:textSize="30dp" />
+                android:textSize="28sp"
+                android:layout_marginTop="8dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_marginTop="8dp">
 
                 <Button
+                    android:id="@+id/startBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="start"
-                    android:layout_margin="2dp"/>
+                    android:layout_margin="4dp"/>
 
                 <Button
+                    android:id="@+id/stopBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="stop"
-                    android:layout_margin="2dp"/>
+                    android:layout_margin="4dp"/>
 
                 <Button
+                    android:id="@+id/resetBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="reset"
-                    android:layout_margin="2dp"/>
+                    android:layout_margin="4dp"/>
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CounterDownTimer"
-                android:textSize="40sp"
-                android:layout_marginTop="20dp"/>
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/countdownBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Odliczanie do wymarszu"
+                    android:layout_margin="8dp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:progress="0"
+                    android:max="1000"
+                    android:layout_margin="8dp"/>
+            </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nastrój Zespołu:"
-                    android:textSize="17dp" />
+                    android:text="Nastrój Drużyny:"
+                    android:textSize="16sp" />
 
                 <RatingBar
+                    android:id="@+id/ratingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:numStars="5" />
-
+                    android:numStars="5"
+                    android:stepSize="1.0"
+                    android:layout_marginStart="8dp"/>
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tytulPodsumowanie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tutaj będzie podsumowanie:"
-                android:textSize="27dp"/>
-
-            <TextView
                 android:id="@+id/podsumowanie"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textSize="27dp"/>
-
+                android:textSize="16sp"
+                android:padding="8dp"
+                android:background="#FFFFFF"
+                android:textColor="#000000"
+                android:layout_marginTop="8dp"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
